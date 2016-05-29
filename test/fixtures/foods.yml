@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  carbs: 9.99
+  fat: 9.99
+  protein: 9.99
+  sodium: 9.99
+  sugar: 9.99
+
+two:
+  name: MyString
+  carbs: 9.99
+  fat: 9.99
+  protein: 9.99
+  sodium: 9.99
+  sugar: 9.99

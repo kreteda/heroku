@@ -1,0 +1,148 @@
+<h1>
+  <div class="pull-right">
+    <%= link_to new_diary_path(entry_id: @diary_entry), class: 'btn btn-primary' do %>
+      <i class="fa fa-plus"></i> Add
+    <% end %>
+  </div>
+  Diary
+</h1>
+
+<hr />
+<div class="text-center">
+  <%= prev_day(@diary_entry.date) %>
+    &nbsp;<strong><%= @diary_entry.date.to_s %></strong>&nbsp;
+  <%= next_day(@diary_entry.date) %>
+</div>
+<hr />
+
+<h2>Morning</h2>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Calories</th>
+      <th>Carbs</th>
+      <th>Fat</th>
+      <th>Protein</th>
+      <th>Sodium</th>
+      <th>Sugar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @diary_entry.morning_foods.empty? %>
+    <tr class="text-center">
+      <td colspan="7"><strong>No entries yet.</strong></td>
+    </tr>
+    <% else %>
+    <% @diary_entry.morning_foods.each do |food| %>
+      <tr>
+        <td><strong><%= food.name %></strong></td>
+        <td><%= food.calories %></td>
+        <td><%= food.carbs %></td>
+        <td><%= food.fat %></td>
+        <td><%= food.protein %></td>
+        <td><%= food.sodium %></td>
+        <td><%= food.sugar %></td>
+      </tr>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>Afternoon</h2>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Calories</th>
+      <th>Carbs</th>
+      <th>Fat</th>
+      <th>Protein</th>
+      <th>Sodium</th>
+      <th>Sugar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @diary_entry.afternoon_foods.empty? %>
+    <tr class="text-center">
+      <td colspan="7"><strong>No entries yet.</strong></td>
+    </tr>
+    <% else %>
+    <% @diary_entry.afternoon_foods.each do |food| %>
+      <tr>
+        <td><strong><%= food.name %></strong></td>
+        <td><%= food.calories %></td>
+        <td><%= food.carbs %></td>
+        <td><%= food.fat %></td>
+        <td><%= food.protein %></td>
+        <td><%= food.sodium %></td>
+        <td><%= food.sugar %></td>
+      </tr>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>Night</h2>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Calories</th>
+      <th>Carbs</th>
+      <th>Fat</th>
+      <th>Protein</th>
+      <th>Sodium</th>
+      <th>Sugar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @diary_entry.night_foods.empty? %>
+    <tr class="text-center">
+      <td colspan="7"><strong>No entries yet.</strong></td>
+    </tr>
+    <% else %>
+    <% @diary_entry.night_foods.each do |food| %>
+      <tr>
+        <td><strong><%= food.name %></strong></td>
+        <td><%= food.calories %></td>
+        <td><%= food.carbs %></td>
+        <td><%= food.fat %></td>
+        <td><%= food.protein %></td>
+        <td><%= food.sodium %></td>
+        <td><%= food.sugar %></td>
+      </tr>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<hr />
+
+<h2>Summary</h2>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Total Calories</th>
+      <th>Carbs</th>
+      <th>Fat</th>
+      <th>Protein</th>
+      <th>Sodium</th>
+      <th>Sugar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong><%= @diary_entry.total_calories %></strong></td>
+      <td><%= @diary_entry.carbs %></td>
+      <td><%= @diary_entry.fat %></td>
+      <td><%= @diary_entry.protein %></td>
+      <td><%= @diary_entry.sodium %></td>
+      <td><%= @diary_entry.sugar %></td>
+    </tr>
+  </tbody>
+</table>

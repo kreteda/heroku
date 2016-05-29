@@ -1,0 +1,46 @@
+<h1>Add new food for <%= @diary_entry.date.to_s %></h1>
+
+<%= form_tag diaries_path(entry_id: @diary_entry.id), class: 'form-horizontal',
+    method: :post do %>
+  <div class="form-group">
+    <label for="food-id" class="control-label col-lg-2">
+      Food:
+    </label>
+    <div class="col-lg-10">
+      <select id="food-id" name="food[id]" class="form-control">
+        <% Food.all.map do |food| %>
+        <option value="<%= food.id %>">
+          <%= food.name %>
+          (Cal: <%= food.calories %>) |
+          (Carbs: <%= food.carbs %>) |
+          (Fat: <%= food.fat %>) |
+          (Protein: <%= food.protein %>) |
+          (Sodium: <%= food.sodium %>) |
+          (Sugar: <%= food.sugar %>)
+        </option>
+        <% end %>
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="food-part" class="control-label col-lg-2">
+      Part of day:
+    </label>
+    <div class="col-lg-10">
+      <select id="food-part" name="food[part_of_day]" class="form-control">
+        <option value='morning'>Morning</option>
+        <option value='afternoon'>Afternoon</option>
+        <option value='night'>Night</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <button type="submit" class="btn btn-primary">Add</button>
+    </div>
+  </div>
+<% end %>
+
+<hr />
+
+<%= link_to "Back", diaries_path(date: @diary_entry.date), class: 'btn btn-default' %>
